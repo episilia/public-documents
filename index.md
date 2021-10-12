@@ -16,7 +16,7 @@ $ helm repo list or helm repo ls
 ```
 $ helm search repo episilia
 ```
-#### **Step2: In above picture episilia/episilia-cpanel is the master chart. In this master chart's values.yaml file update kafka values and  required global values**
+#### **Step2: episilia/episilia-cpanel is the master chart. In this master chart's values.yaml file update required global values as described in the [values section](#values-documentation)**
 Inspect the values before installing application use below:
 ```
 $ helm inspect values episilia/episilia-cpanel > episilia_values.yaml
