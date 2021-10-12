@@ -1,5 +1,7 @@
 ## **EPISILIA**
 
+Helm installation guide for episilia.  Refer to [prerequisites](#prerequisites) before installation.
+
 #### **Step1: Adding the helm repo to local Machine**
  Repo URL is Gitlab Page URL
  ```bash
@@ -21,11 +23,11 @@ Inspect the values before installing application use below:
 ```
 $ helm inspect values episilia/episilia-cpanel > episilia_values.yaml
 
- $ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev
+$ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev
 ```
 #### **Step3: Just do the dry run and cross check all the values and see override or updates values reflected.**
 ```
- $ helm install  episilia episilia/episilia-cpanel -f episilia_values.yaml --dry-run
+$ helm install  episilia episilia/episilia-cpanel -f episilia_values.yaml --dry-run
 ```
 ```
 $ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev --dry-run
@@ -89,7 +91,7 @@ Also most compilers will automatically define __AVX2__ so you can check for that
 2. vCPUs - 2,Mem - 8gb (Preferably t2-large in AWS)
 
 ### **References**
-#### **Installation Guide**
+
 
 **Kubectl CLI**
 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
