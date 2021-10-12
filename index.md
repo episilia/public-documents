@@ -2,7 +2,7 @@
 
 Helm installation guide for episilia.  Refer to [prerequisites](#prerequisites) before installation.
 
-#### **Step1: Adding the helm repo to local Machine**
+### **Step1: Adding the helm repo to local Machine**
  Repo URL is Gitlab Page URL
  ```bash
 helm repo add [NAME] [URL]
@@ -18,21 +18,21 @@ $ helm repo list or helm repo ls
 ```
 $ helm search repo episilia
 ```
-#### **Step2: episilia/episilia-cpanel is the master chart. In this master chart's values.yaml file update required global values as described in the [values section](#values-documentation)**
+### **Step2: episilia/episilia-cpanel is the master chart. In this master chart's values.yaml file update required global values as described in the [values section](#values-documentation)**
 Inspect the values before installing application use below:
 ```
 $ helm inspect values episilia/episilia-cpanel > episilia_values.yaml
 
 $ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev
 ```
-#### **Step3: Just do the dry run and cross check all the values and see override or updates values reflected.**
+### **Step3: Just do the dry run and cross check all the values and see override or updates values reflected.**
 ```
 $ helm install  episilia episilia/episilia-cpanel -f episilia_values.yaml --dry-run
 ```
 ```
 $ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev --dry-run
 ```
-#### **Step4: Install helm repo**
+### **Step4: Install helm repo**
 ```
 helm install [RELEASE NAME] [CHART]
 $ helm install episilia episilia/episilia-cpanel  -f episilia_values.yaml
@@ -51,7 +51,7 @@ List the installed helm chart
  ```
  $ kubectl get services
 ```
-#### **Step5: Access grafana Dashboard in browser**
+### **Step5: Access grafana Dashboard in browser**
 We can access the grafana dashboard using grafana External IP i.e IP of the kubernetes node and the portno
 
 Default USERNAME and PASSWORD is admin
@@ -61,8 +61,39 @@ And Select the source on the top right side of the page.
 Now you can browse the logs.
 Done...!
 
-#### Values documentation
+### Values documentation
 
+
+
+#### Enabling server nodes
+
+Use these variable enables to  enable optimizer and historic search if needed.
+
+<pre><code class="language-yaml">
+episilia-log-indexer:
+  enabled: true
+episilia-search:
+  enabled: true
+episilia-search-fixed:
+  enabled: false
+episilia-gateway:
+  enabled: true
+episilia-log-indexer-opt:
+  enabled: false
+grafana:
+  enabled: true
+</code></pre>
+
+#### Installation specific configuration
+
+Every installation should proivide an unique client name and env as below
+
+<pre><code class="language-yaml">global:
+  client:
+    name: episilia-helm
+    env: test-helm
+
+</code></pre>
 
 ### **Prerequisites**:
 The following prerequisites are required to install Episilia.
