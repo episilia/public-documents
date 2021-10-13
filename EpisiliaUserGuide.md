@@ -77,11 +77,11 @@ Query by selecting multiple labels:
 
 Query for a given app-id with simple match filter:
 
-**{\_\_app\_\_="Fuduntu12.04"} |="signal"**
+__{\_\_app\_\_="Fuduntu12.04"} |="signal"__
 
 Query for a given app-id with multiple match filter:
 
-**{\_\_app\_\_="Fuduntu12.04"} |= "signal" |="SIGTERM"**
+__{\_\_app\_\_="Fuduntu12.04"} |= "signal" |="SIGTERM"__
 
 Query all the logs based on regexp match of labels:
 
