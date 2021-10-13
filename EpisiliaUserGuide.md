@@ -65,31 +65,31 @@ Similarly, the Tennat ID label (\_\_tenant\_\_) is provided by log indexer confi
 
 Query all the logs for a given app-id:
 
-    **{ app ="Fuduntu12.04"}**
+**{\_\_app\_\_="Fuduntu12.04"}**
 
 Query all the logs for a given label:
 
-    **{release="14.04LTS"}**
+**{release="14.04LTS"}**
 
 Query by selecting multiple labels:
 
-    **{distr="Fuduntu",release="12.04"}**
+**{distr="Fuduntu",release="12.04"}**
 
 Query for a given app-id with simple match filter:
 
-    **{ app ="Fuduntu12.04"} |="signal"**
+**{\_\_app\_\_="Fuduntu12.04"} |="signal"**
 
 Query for a given app-id with multiple match filter:
 
-    **{ app ="Fuduntu12.04"} |= "signal" |="SIGTERM"**
+**{\_\_app\_\_="Fuduntu12.04"} |= "signal" |="SIGTERM"**
 
 Query all the logs based on regexp match of labels:
 
-    **{release=~".*LTS"} |="host"**
+__{release=~".*LTS"}|="host"__
 
 Query for a given app-id with regexp match filter:
 
-    **{ app ="openSUSE12.04"} |~ "TID \d3\d\d"**
+**{\_\_app\_\_="openSUSE12.04"}|~"TID \d3\d\d"**
 
 #### Running Multiple Queries:
 
@@ -99,37 +99,37 @@ Multiple queries can be selected using “Add Query” in Grafana, which will en
 
 Multiple values of a label can be passed using regexp as below:
 
-    **{release=~ "(20.10|16.04LTS)"}|="Error"**
+**{release=~"(20.10|16.04LTS)"}|="Error"**
 
 #### To search for double-quoted strings in the input log, escape the double quotes as below:
 
-    **{\_\_app\_\_="Fuduntu12.04"} |="\"pnmf4.py\""**
+**{\_\_app\_\_="Fuduntu12.04"}|="\"pnmf4.py\""**
 
 #### Highlighting context of logs inline:
 
 To enable selecting contextual logs, add the following pre defined label selector
 
-    **\_\_ctx\_\_=<number>**
+**\_\_ctx\_\_=\<number\>**
 
 Example:
 
-    **{\_\_app\_\_="fedora14.04LTS",\_\_ctx\_\_=2}|="shutdown"**
+**{\_\_app\_\_="fedora14.04LTS",\_\_ctx\_\_=2}|="shutdown"**
 
 
 #### S3 writing of logs inline:
 
 To enable writing results of the search to S3, add the following pre defined label selector
  
-    **\_\_s3\_\_= 1**
+**\_\_s3\_\_= 1**
 
 Example:
 
-    **{\_\_app\_\_="fedora14.04LTS", s3 =1}**
+**{\_\_app\_\_="fedora14.04LTS",\_\_s3\_\_=1}**
 
 To limit the number of lines written to S3, add the following pre defined label selector
 
-    **\_\_s3limit\_\_=5000**
+**\_\_s3limit\_\_=5000**
 
 Example:
 
-    **{\_\_app\_\_="fedora14.04LTS",\_\_s3limit\_\_=5000}**
+ **{\_\_app\_\_="fedora14.04LTS",\_\_s3limit\_\_=5000}**
