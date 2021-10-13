@@ -69,7 +69,7 @@ Query all the logs for a given app-id:
 
 Query all the logs for a given label:
 
-**{release="14.04LTS"}**
+__{release="14.04LTS"}__
 
 Query by selecting multiple labels:
 
