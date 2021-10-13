@@ -113,7 +113,7 @@ To enable selecting contextual logs, add the following pre defined label selecto
 
 Example:
 
-**{\_\_app\_\_="fedora14.04LTS",\_\_ctx\_\_=2}|="shutdown"**
+__{\_\_app\_\_="fedora14.04LTS",\_\_ctx\_\_=2}|="shutdown"__
 
 
 #### S3 writing of logs inline:
