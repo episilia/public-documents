@@ -45,8 +45,6 @@ Search filter can have any of the following operators as below:
 
 - **(Doesn’t contain) != “Filter”** 
 - **(Regex not match) !~ “Filter”**
-- **(Exactly contain) |= “Filter”**
-- **(Regex match) |~ “Filter”** 
 
 For detailed regexp syntax refer to:[https://www.pcre.org/original/doc/html/pcrepattern.html](https://www.pcre.org/original/doc/html/pcrepattern.html)
 
@@ -85,7 +83,7 @@ Query for a given app-id with multiple match filter:
 
 Query all the logs based on regexp match of labels:
 
-**({release=~".*LTS"}|="host"**
+__({release=~".*LTS"}|="host"__
 
 Query for a given app-id with regexp match filter:
 
