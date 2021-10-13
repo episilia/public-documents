@@ -77,15 +77,15 @@ Query by selecting multiple labels:
 
 Query for a given app-id with simple match filter:
 
-__{\_\_app\_\_="Fuduntu12.04"} |="signal"__
+**{\_\_app\_\_="Fuduntu12.04"} |="signal"**
 
 Query for a given app-id with multiple match filter:
 
-__{\_\_app\_\_="Fuduntu12.04"} |= "signal" |="SIGTERM"__
+**{\_\_app\_\_="Fuduntu12.04"} |= "signal" |="SIGTERM"**
 
 Query all the logs based on regexp match of labels:
 
-__{release=~".*LTS"}|="host"__
+**({release=~".*LTS"}|="host"**
 
 Query for a given app-id with regexp match filter:
 
@@ -113,7 +113,7 @@ To enable selecting contextual logs, add the following pre defined label selecto
 
 Example:
 
-__{\_\_app\_\_="fedora14.04LTS",\_\_ctx\_\_=2}|="shutdown"__
+**{\_\_app\_\_="fedora14.04LTS",\_\_ctx\_\_=2}|="shutdown"**
 
 
 #### S3 writing of logs inline:
