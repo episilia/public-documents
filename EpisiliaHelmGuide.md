@@ -82,6 +82,7 @@ episilia-log-indexer-opt:
   enabled: false
 grafana:
   enabled: true
+
 </code></pre>
 
 #### Installation specific configuration
@@ -92,6 +93,7 @@ Every installation should proivide an unique client name and env as below
   client:
     name: episilia-helm
     env: test-helm
+
 </code></pre>
 
 ####  All common ops
@@ -105,6 +107,7 @@ ops:
         publish:
           interval:
             seconds: 300 # Time interval in which cpanel will be pushing metrics to console
+
 </code></pre>
 
 ### **Prerequisites**:
