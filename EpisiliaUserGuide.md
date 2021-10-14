@@ -1,4 +1,4 @@
-# **Episilia User Guide**
+# **User Guide**
 This document provides details on usage of episilia for the end users, primarily focused on the search of logs using grafana GUI.
 
 ### Reference:
