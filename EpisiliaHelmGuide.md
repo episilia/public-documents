@@ -102,7 +102,8 @@ grafana:
 
 #### Installation specific configuration
 
-Every installation should proivide an unique client name and env as below
+<!--Every installation should proivide an unique client name and env as below-->
+Each consumer will have unique client name and env provided, the same is to be used here.
 
 <pre><code class="language-yaml">global:
   client:
