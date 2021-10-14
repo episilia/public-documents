@@ -110,6 +110,228 @@ ops:
 
 </code></pre>
 
+#### Kafka config
+
+<pre><code class="language-yaml">
+kafka:
+    metadata:
+      broker:
+        list: localhost:9092 # The kafka broker
+    group:      
+      search: episilia-search-group   # Kafka consumer-group for search
+      cpanel: episilia-cpanel-group   # Kafka consumer-group for cpanel
+    topic:
+      index:
+        live: stagefiles # Topic for internal publish indexed files - stage.topic
+        optimized: optfiles # Topic for internal optimize.topic:  publish file names post optimization
+      optimize:
+        request: stagefolder #optimize.request.topic send folders to optimize
+      cpanel:
+        in: cpaneld # Internal topic cpanel.data.topic
+        out: cpaneld # Internal topic cpanel.data.topic
+    indexer:
+      logs:
+        topics: logs # Topic from where logs are loaded.
+      group: episilia-indexer-group  # Kafka consumer-group for indexer
+
+</code></pre>
+
+#### Datastore
+
+Where indexed data is stored
+
+<pre><code class="language-yaml">
+datastore:
+    s3:
+      accesskey: ""  # filestorage access key (eg: AWS S3 access key)
+      secretkey: ""  # filestorage secret key (eg: AWS S3 secret key)
+      region: ""     # filestorage region (eg: AWS S3 region)
+      endpoint:
+        url: ""     # filestorage endpoint URL (eg: AWS S3 endpoint URL)
+      sign:
+        payload: true
+      bucket: episilia-bucket  # filestorage bucket (eg: AWS S3 bucket)
+      folder: episilia-folder  # filestorage folder URL (eg: AWS S3 folder)
+      work:
+        folder: work-folder   # Folder name to store s3 limit/write results
+      url:
+        prefix: s3://   # filestorage prefix URL (default to AWS S3)
+
+</code></pre>
+
+#### Indexer
+
+Config for indexer and optimizer
+
+<pre><code class="language-yaml">
+indexer:
+    image:
+      repository: episilia/episilia-log-indexer    # docker image of episilia-log-indexer
+      tag: *release
+    replicaCount: "1"        # kubernetes pod replicas of episilia-log-indexer
+    resources:
+      limits:
+        cpu: 800m            # cpu limit on episilia-log-indexer 
+        memory: 1024Mi       # memory limit on episilia-log-indexer
+      requests:
+        cpu: 400m            # cpu request on episilia-log-indexer
+        memory: 300Mi        # memory request on episilia-log-indexer
+
+
+    logs:
+      source: kafka         # source: kafka  # s3 or kafka
+    schema:
+      appid:
+        fixed: "defaultApp"      # If appid is a fixed string
+        keys: "project.app_id"   # label(s) for app identifier
+      tenantid:        
+        fixed: "defaultTenant"   # If tenantid is a fixed string  
+        keys: ""                 # label(s) for tenant identifier        
+      message:
+        key: "log"               # actual log message key
+      timestamp:
+        key: "time"              # timestamp key
+        formats: "%Y-%m-%dT%H:%M:%S"  #to specify timestamp format (ex: %Y-%m-%dT%H:%M:%S )
+      exclude: "time"            # labels to be excluded from the list
+
+  optimizer:
+    replicaCount: "1"           # kubernetes pod replicas of episilia-optimizer  
+    resources:
+      limits:
+        cpu: 800m              # cpu limit on episilia-optimizer
+        memory: 1024Mi         # memory limit on episilia-optimizer
+      requests:
+        cpu: 500m              # cpu request on episilia-optimizer        
+        memory: 300Mi          # memory request on episilia-optimizer
+
+</code></pre>
+
+#### Search
+
+Config for search engine
+
+<pre><code class="language-yaml">
+search:
+    image:
+      repository: episilia/episilia-search   # docker image of episilia-search
+      tag: *release
+    replicaCount: "1"                        # kubernetes pod replicas of episilia-search 
+    resources:
+      limits:
+        cpu: "1"                             # cpu limit on episilia-search
+        memory: 2048Mi                       # memory limit on episilia-search
+      requests:
+        cpu: 500m                            # cpu request on episilia-search
+        memory: 600Mi                        # memory request on episilia-search
+
+    api:
+      timeout:
+        seconds: 40                         # timeout for search while querying
+    
+    live:
+      from:
+        hours: 48                           # hours from when the required index blocks should be loaded
+      to:
+        hours: 0                            # hours till when the required index blocks should be loaded, Note: value to be "0" to get instant logs
+    labels:
+      exclude: "@timestamp,log" # Lables excluded from grafana dropdown GUI. 
+
+</code></pre>
+
+Config for search engine
+
+<pre><code class="language-yaml">
+fixedSearch:
+    bucket: ""             # s3 bucket for historic search to run parallelly, Note: if the value is empty it takes datastore.s3.bucket value as default
+    folder: ""             # s3 folder for historic search to run parallelly, Note: if the value is empty it takes datastore.s3.folder value as default
+    replicaCount: "1"      # kubernetes pod replicas of historic episilia-search 
+    resources:
+      limits:
+        cpu: "1"          # cpu limit on historic episilia-search
+        memory: 1024Mi    # memory limit on historic episilia-search
+      requests:
+        cpu: 500m         # cpu request on historic episilia-search
+        memory: 600Mi     # memory request on historic episilia-search
+    fixed:
+      from:
+        yyyymmddhh: "2021092100"    # the date from when the required index blocks should be loaded
+      to:
+        yyyymmddhh: "2021092202"    # the date till when the required index blocks should be loaded
+
+    api:
+      timeout:
+        seconds: 40       # timeout for search while querying
+
+    labels:
+      exclude: "@timestamp,log" # Lables excluded from grafana dropdown GUI. 
+
+</code></pre>
+
+####  Gateway
+
+<pre><code class="language-yaml">
+gateway:
+    image:
+      repository: episilia/episilia-gateway
+      tag: *release
+    service:
+      type: ClusterIP 
+    replicaCount: "1"
+    resources:
+      limits:
+        cpu: 500m
+        memory: 600Mi
+      requests:
+        cpu: 300m
+        memory: 200Mi 
+
+    search:
+      timeout:
+        seconds: 40
+ 
+</code></pre>
+
+#### Control Panel
+
+<pre><code class="language-yaml">
+cpanel:
+    ops:
+      healthchecks:
+        interval:
+          mins: "5"
+        exclude:
+          list: ""
+    api:
+      access:
+        key: token
+        token: random
+      post:
+        server: "https://console.episilia.com/publish_cpanel_data"
+      get:
+        server: ""
+        
+</code></pre>
+
+#### Persistance Volume 
+
+<pre><code class="language-yaml">
+persistence:
+    enabled: false  
+    mountPath: "/data"
+    storageClassName: do-block-storage
+    accessModes:
+    - ReadWriteOnce
+    size: "40Gi"
+    historicSize: "20Gi"
+    # annotations: {}
+    finalizers:
+     - kubernetes.io/pvc-protection
+    # selectorLabels: {}
+    # subPath: ""
+    # existingClaim:
+
+</code></pre>
+
 ### **Prerequisites**:
 The following prerequisites are required to install Episilia.
 ```
