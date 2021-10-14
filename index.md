@@ -1,5 +1,5 @@
-# Episilia Documentation
+# Episilia 
 
-* [Episilia user guide](https://episilia.github.io/episilia/EpisiliaUserGuide)
-* [Episilia helm guide](https://episilia.github.io/episilia/EpisiliaHelmGuide)
+* [User guide](https://episilia.github.io/episilia/EpisiliaUserGuide)
+* [Helm installation guide](https://episilia.github.io/episilia/EpisiliaHelmGuide)
 * [Release notes](https://episilia.github.io/episilia/ReleaseNotes)
