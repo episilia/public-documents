@@ -64,6 +64,13 @@ Done...!
 ### Values documentation
 
 
+#### Image tag
+
+Docker image for Episilia which will be updated by the Episilia team.
+
+<pre><code class="language-yaml">
+imageTag: &release "1.0.0.RC3-20210922"
+</code></pre>
 
 #### Enabling server nodes
 
