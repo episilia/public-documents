@@ -45,8 +45,8 @@ Search filter can have any of the following operators as below:
 
 * **(Doesn’t contain) != “Filter”** 
 * **(Regex not match) !~ “Filter”**   
--**(Exactly contain) |= “Filter”**  
--**(Regex match) |~ “Filter”**
+* **(Exactly contain) |= “Filter”**  
+* **(Regex match) |~ “Filter”**
 
 For detailed regexp syntax refer to:[https://www.pcre.org/original/doc/html/pcrepattern.html](https://www.pcre.org/original/doc/html/pcrepattern.html)
 
