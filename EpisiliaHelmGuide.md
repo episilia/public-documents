@@ -78,7 +78,9 @@ To enable the required servers.
 
 Use these variable enables to  enable optimizer and historic search if needed.
 
-> 📝Note: episilia-log-indexer, episilia-search, episilia-gateway should be enabled for Episilia to work.
+
+  > 📝**Note:** episilia-log-indexer, episilia-search, episilia-gateway should be enabled for Episilia to work.
+
 
 <pre><code class="language-yaml">
 episilia-log-indexer:
