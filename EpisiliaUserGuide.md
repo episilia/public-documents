@@ -43,10 +43,10 @@ There can be multiple search filters applied on the label selectors.
 
 Search filter can have any of the following operators as below:
 
-- **( EQUAL ) Label = “Val”** 
-- **(NOT EQ) Label != “Val”** 
-- **(REGEX ) Label =~ “Val”** 
-- **(NOTREG) Label !~ “Val”**
+- **(Exactly contain) |= “Filter”** 
+- **(Doesn’t contain) != “Filter”** 
+- **(Regex match) |~ “Filter”** 
+- **(Regex not match) !~ “Filter”**
 
 
 For detailed regexp syntax refer to:[https://www.pcre.org/original/doc/html/pcrepattern.html](https://www.pcre.org/original/doc/html/pcrepattern.html)
@@ -114,7 +114,7 @@ To enable selecting contextual logs, add the following pre defined label selecto
 
 Example:
 
-**{\_\_app\_\_="fedora14.04LTS",\_\_ctx\_\_=2}|="shutdown"**
+<b>{\_\_app\_\_="fedora14.04LTS",\_\_ctx\_\_=2}|="shutdown"</b>
 
 
 #### S3 writing of logs inline:
