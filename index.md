@@ -1,8 +1,5 @@
-# Episilia Release Notes
+# Episilia
 
-* [Release_Notes_for_v0.8](https://episilia.github.io/episilia/Release_Notes_for_v0.8)
-* [Release_Notes_for_v0.9](https://episilia.github.io/episilia/Release_Notes_for_v0.9)
-* [Release_Notes_for_v0.10](https://episilia.github.io/episilia/Release_Notes_for_v0.10)
-* [Release_Notes_for_v0.11](https://episilia.github.io/episilia/Release_Notes_for_v0.11)
-* [Release_Notes_for_v0.12](https://episilia.github.io/episilia/Release_Notes_for_v0.12)
-* [Release_Notes_for_v1.00.RC1](https://episilia.github.io/episilia/Release_Notes_for_v1.00.RC1)
+* [Episilia user guide](https://episilia.github.io/episilia/EpisiliaUserGuide)
+* [Episilia helm guide](https://episilia.github.io/episilia/EpisiliaHelmGuide)
+* [Release notes](https://episilia.github.io/episilia/ReleaseNotes)
