@@ -1,4 +1,4 @@
-## **Installation guide**
+## **Installation Guide**
 
 Helm installation guide for episilia.  Refer to [prerequisites](#prerequisites) before installation.
 
