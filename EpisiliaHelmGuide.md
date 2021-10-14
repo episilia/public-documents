@@ -123,7 +123,6 @@ Also most compilers will automatically define __AVX2__ so you can check for that
 
 ### **References**
 
-
 **Kubectl CLI**
 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
