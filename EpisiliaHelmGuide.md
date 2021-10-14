@@ -80,7 +80,7 @@ Use these variable enables to  enable optimizer and historic search if needed.
 
 
   ```
-  **📝Note**: episilia-log-indexer, episilia-search, episilia-gateway should be enabled for Episilia to work.
+  **📝__Note__**: episilia-log-indexer, episilia-search, episilia-gateway should be enabled for Episilia to work.
   ```
 
 
