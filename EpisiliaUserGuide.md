@@ -66,7 +66,7 @@ Similarly, the Tennat ID label (\_\_tenant\_\_) is provided by log indexer confi
 
 Query all the logs for a given app-id:
 
-**{\_\_app\_\_="Fuduntu12.04"}**
+**\{\_\_app\_\_="Fuduntu12.04"\}**
 
 Query all the logs for a given label:
 
