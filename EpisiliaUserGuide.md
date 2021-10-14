@@ -86,7 +86,7 @@ Query for a given app-id with multiple match filter:
 
 Query all the logs based on regexp match of labels:
 
-__({release=~".*LTS"}|="host"__
+__{release=~".*LTS"}|="host"__
 
 Query for a given app-id with regexp match filter:
 
