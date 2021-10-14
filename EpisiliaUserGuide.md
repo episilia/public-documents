@@ -82,15 +82,15 @@ Query for a given app-id with simple match filter:
 
 Query for a given app-id with multiple match filter:
 
-**{\_\_app\_\_="Fuduntu12.04"} |= "signal" |="SIGTERM"**
+<b>{\_\_app\_\_="Fuduntu12.04"} |= "signal" |="SIGTERM"</b>
 
 Query all the logs based on regexp match of labels:
 
-__{release=~".*LTS"}|="host"__
+<b>{release=~".*LTS"}|="host"</b>
 
 Query for a given app-id with regexp match filter:
 
-**{\_\_app\_\_="openSUSE12.04"}|~"TID \d3\d\d"**
+<b>{\_\_app\_\_="openSUSE12.04"}|~"TID \d3\d\d"</b>
 
 #### Running Multiple Queries:
 
@@ -100,11 +100,11 @@ Multiple queries can be selected using “Add Query” in Grafana, which will en
 
 Multiple values of a label can be passed using regexp as below:
 
-**{release=~"(20.10|16.04LTS)"}|="Error"**
+<b>{release=~"(20.10|16.04LTS)"}|="Error"</b>
 
 #### To search for double-quoted strings in the input log, escape the double quotes as below:
 
-**{\_\_app\_\_="Fuduntu12.04"}|="\"pnmf4.py\""**
+<b>{\_\_app\_\_="Fuduntu12.04"}|="\"pnmf4.py\""</b>
 
 #### Highlighting context of logs inline:
 
