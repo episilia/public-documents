@@ -1,4 +1,4 @@
-# Episilia
+# Episilia Release Notes
 
 * [Release_Notes_for_v0.8](https://episilia.github.io/episilia/Release_Notes_for_v0.8)
 * [Release_Notes_for_v0.9](https://episilia.github.io/episilia/Release_Notes_for_v0.9)
