@@ -92,7 +92,19 @@ Every installation should proivide an unique client name and env as below
   client:
     name: episilia-helm
     env: test-helm
+</code></pre>
 
+####  All common ops
+
+<pre><code class="language-yaml">
+ops:
+    log:
+      debug: on # Enable to get debug logs in all the servers
+    cpanel:
+      data:
+        publish:
+          interval:
+            seconds: 300 # Time interval in which cpanel will be pushing metrics to console
 </code></pre>
 
 ### **Prerequisites**:
@@ -122,6 +134,7 @@ Also most compilers will automatically define __AVX2__ so you can check for that
 2. vCPUs - 2,Mem - 8gb (Preferably t2-large in AWS)
 
 ### **References**
+
 
 **Kubectl CLI**
 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
