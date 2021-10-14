@@ -44,7 +44,7 @@ There can be multiple search filters applied on the label selectors.
 Search filter can have any of the following operators as below:
 
 * **(Doesn’t contain) != “Filter”** 
-* **(Regex not match) !~ “Filter”**/ 
+* **(Regex not match) !~ “Filter”**  
 - **(Exactly contain) |= “Filter”**
 - **(Regex match) |~ “Filter”**
 
