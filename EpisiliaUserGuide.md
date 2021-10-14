@@ -78,7 +78,7 @@ Query by selecting multiple labels:
 
 Query for a given app-id with simple match filter:
 
-**{\_\_app\_\_="Fuduntu12.04"} |="signal"**
+<b>{\_\_app\_\_="Fuduntu12.04"} |="signal"</b>
 
 Query for a given app-id with multiple match filter:
 
