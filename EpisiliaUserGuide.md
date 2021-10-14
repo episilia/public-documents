@@ -32,7 +32,7 @@ Each label selector would choose one available label (as per the label name in t
 
 - **( EQUAL ) Label = “Val”** 
 - **(NOT EQ) Label != “Val”** 
-- **(REGEX ) Label =~ “Val”** 
+- ** (REGEX ) Label =~ “Val” ** 
 - **(NOTREG) Label !~ “Val”**
 
 #### Search Filter Part:
