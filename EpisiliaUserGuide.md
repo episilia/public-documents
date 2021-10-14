@@ -43,10 +43,10 @@ There can be multiple search filters applied on the label selectors.
 
 Search filter can have any of the following operators as below:
 
-* __(Doesn’t contain) != “Filter”
-* __(Regex not match) !~ “Filter”
-* __(Exactly contain) |= “Filter”
-* __(Regex match) |~ “Filter”** 
+* __(Doesn’t contain) != “Filter”__
+* __(Regex not match) !~ “Filter”__
+* __(Exactly contain) |= “Filter”__
+* __(Regex match) |~ “Filter”__ 
 
 For detailed regexp syntax refer to:[https://www.pcre.org/original/doc/html/pcrepattern.html](https://www.pcre.org/original/doc/html/pcrepattern.html)
 
