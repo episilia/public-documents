@@ -253,7 +253,7 @@ search:
 
 </code></pre>
 
-Config for search engine
+Config for historic search engine
 
 <pre><code class="language-yaml">
 fixedSearch:
@@ -285,43 +285,44 @@ fixedSearch:
 ####  Gateway
 
 <pre><code class="language-yaml">
-gateway:
+
+  gateway:
     image:
-      repository: episilia/episilia-gateway
+      repository: episilia/episilia-gateway   # docker image of episilia-gateway
       tag: *release
     service:
-      type: ClusterIP 
-    replicaCount: "1"
+      type: ClusterIP                         # service type of episilia-gateway
+    replicaCount: "1"                         # kubernetes pod replicas of episilia-gateway
     resources:
       limits:
-        cpu: 500m
-        memory: 600Mi
+        cpu: 500m                             # cpu limit on episilia-gateway
+        memory: 600Mi                         # memory limit on episilia-gateway
       requests:
-        cpu: 300m
-        memory: 200Mi 
+        cpu: 300m                             # cpu request on episilia-gateway
+        memory: 200Mi                         # memory request on episilia-gateway
 
     search:
       timeout:
-        seconds: 40
+        seconds: 40                           # timeout of the query from gateway 
  
 </code></pre>
 
 #### Control Panel
 
 <pre><code class="language-yaml">
-cpanel:
+  cpanel:
     ops:
       healthchecks:
         interval:
-          mins: "5"
+          mins: "5"                          # time interval in which metrics are pushed
         exclude:
-          list: ""
+          list: ""                           # to exclude the specific metrics
     api:
-      access:
-        key: token
+      access:                                # Unique keys to access the episilia console
+        key: token                           
         token: random
       post:
-        server: "https://console.episilia.com/publish_cpanel_data"
+        server: "https://console.episilia.com/publish_cpanel_data"      # Url of the console
       get:
         server: ""
         
@@ -330,14 +331,14 @@ cpanel:
 #### Persistance Volume 
 
 <pre><code class="language-yaml">
-persistence:
-    enabled: false  
-    mountPath: "/data"
-    storageClassName: do-block-storage
+  persistence:
+    enabled: false                              # to enable PVC 
+    mountPath: "/data"                          # mount path of PVC 
+    storageClassName: do-block-storage          # storage class name (differs on the cloud services that are used)
     accessModes:
-    - ReadWriteOnce
-    size: "40Gi"
-    historicSize: "20Gi"
+    - ReadWriteOnce                             # access modes
+    size: "40Gi"                                # size of PVC which will be mounted to episilia-search for live search
+    historicSize: "20Gi"                        # size of PVC which will be mounted to episilia-search for historic search
     # annotations: {}
     finalizers:
      - kubernetes.io/pvc-protection
