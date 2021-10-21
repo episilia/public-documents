@@ -19,7 +19,7 @@ $ helm repo list or helm repo ls
 $ helm search repo episilia
 ```
 ## **Step2: Update values in episilia/episilia-cpanel is the master chart** 
-In this master chart's values.yaml file update required global values as described in the [values section](#values).
+In this master chart's values.yaml file update required global values as described in the [values section](#values-configuration).
 Inspect the values before installing application use below:
 ```
 $ helm inspect values episilia/episilia-cpanel > episilia_values.yaml
