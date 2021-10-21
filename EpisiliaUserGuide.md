@@ -104,7 +104,7 @@ Multiple values of a label can be passed using regexp as below:
 
 #### To search for double-quoted strings in the input log, escape the double quotes as below:
 
-<b>{\_\_app\_\_="Fuduntu12.04"}|="\\"pnmf4.py\\""</b>
+<b>{\_\_app\_\_="Fuduntu12.04"} |= "\\"pnmf4.py\\""</b>
 
 #### Highlighting context of logs inline:
 
