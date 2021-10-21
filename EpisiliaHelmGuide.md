@@ -26,7 +26,7 @@ $ helm inspect values episilia/episilia-cpanel > episilia_values.yaml
 
 $ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev
 ```
-## **Step3: Dry run and cross check all the values and see override or updates values reflected.**
+## **Step3: Dry run and cross check all the values** 
 ```
 $ helm install  episilia episilia/episilia-cpanel -f episilia_values.yaml --dry-run
 ```
@@ -57,12 +57,7 @@ Access the grafana dashboard using grafana cluster IP.
 
 Default <USERNAME> and <PASSWORD> is *admin*
 
-Click on Explore Right Hand Side.
-And Select the source on the top right side of the page.
-Now you can browse the logs.
-Done...!
-
-## Values 
+## Values configuration
 
 Override for values as needed for specific installation. 
 
