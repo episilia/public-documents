@@ -1,40 +1,41 @@
-## **Installation guide**
+# **HELM Installation guide**
 
 Helm installation guide for episilia.  Refer to [prerequisites](#prerequisites) before installation.
 
-### **Step1: Adding the helm repo to local Machine**
+## **Step1: Adding the helm repo** 
  Repo URL is Gitlab Page URL
  ```bash
-helm repo add [NAME] [URL]
+helm repo add <NAME> <URL>
 $ helm repo add episilia https://episilia.gitlab.io/episilia-helm/release
 ```
-#### **Listing chart repositories:**
+### **Listing chart repositories:**
 ```
 $ helm repo list or helm repo ls
   NAME        URL 
   episilia   https://episilia.gitlab.io/episilia-helm/release
 ```
-#### **Searching for charts in the repository:**
+### **Searching for charts in the repository:**
 ```
 $ helm search repo episilia
 ```
-### **Step2: episilia/episilia-cpanel is the master chart. In this master chart's values.yaml file update required global values as described in the [values section](#values-documentation)**
+## **Step2: Update values in episilia/episilia-cpanel is the master chart** 
+In this master chart's values.yaml file update required global values as described in the [values section](#values).
 Inspect the values before installing application use below:
 ```
 $ helm inspect values episilia/episilia-cpanel > episilia_values.yaml
 
 $ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev
 ```
-### **Step3: Just do the dry run and cross check all the values and see override or updates values reflected.**
+## **Step3: Dry run and cross check all the values and see override or updates values reflected.**
 ```
 $ helm install  episilia episilia/episilia-cpanel -f episilia_values.yaml --dry-run
 ```
 ```
 $ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev --dry-run
 ```
-### **Step4: Install helm repo**
+## **Step4: Install helm repo**
 ```
-helm install [RELEASE NAME] [CHART]
+helm install <RELEASE NAME> <CHART>
 $ helm install episilia episilia/episilia-cpanel  -f episilia_values.yaml
                               or      
 $ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev
@@ -51,36 +52,35 @@ List the installed helm chart
  ```
  $ kubectl get services
 ```
-### **Step5: Access grafana Dashboard in browser**
-We can access the grafana dashboard using grafana External IP i.e IP of the kubernetes node and the portno
+## **Step5: Access grafana Dashboard in browser**
+Access the grafana dashboard using grafana cluster IP.
 
-Default USERNAME and PASSWORD is admin
+Default <USERNAME> and <PASSWORD> is *admin*
 
 Click on Explore Right Hand Side.
 And Select the source on the top right side of the page.
 Now you can browse the logs.
 Done...!
 
-### Values documentation
+## Values 
 
+Override for values as needed for specific installation. 
 
-#### Image tag
+### Image tag
 
-Docker image for Episilia which will be updated by the Episilia team.
+Docker image for episilia.
 
 <pre><code class="language-yaml">
 imageTag: &release "1.0.0.RC3-20210922"
 </code></pre>
 
-#### Enabling server nodes
+### Enabling server nodes
 
-To enable the required servers.
-
-Use these variable enables to  enable optimizer and historic search if needed.
+To enable the required servers. Use these variable to  enable optimizer and historic search if needed.
 
 
   ```
-  📝 Note: episilia-log-indexer, episilia-search, episilia-gateway should be enabled for Episilia to work.
+  📝 Note: episilia-log-indexer, episilia-search, episilia-gateway needs to be enabled by default.
   ```
 
 <pre><code class="language-yaml">
@@ -99,10 +99,9 @@ grafana:
 
 </code></pre>
 
-#### Installation specific configuration
+### Installation specific configuration
 
-<!--Every installation should proivide an unique client name and env as below-->
-Each consumer will have unique client name and env provided, the same is to be used here.
+Every installation should proivide an unique client name and env as below.
 
 <pre><code class="language-yaml">global:
   client:
@@ -111,7 +110,9 @@ Each consumer will have unique client name and env provided, the same is to be u
 
 </code></pre>
 
-####  All common ops
+###  All common ops
+
+Common Ops config goes below.
 
 <pre><code class="language-yaml">
 ops:
@@ -125,7 +126,9 @@ ops:
 
 </code></pre>
 
-#### Kafka config
+### Kafka config
+
+All kafka specific configuration goes below.
 
 <pre><code class="language-yaml">
 kafka:
@@ -151,9 +154,9 @@ kafka:
 
 </code></pre>
 
-#### Datastore
+### Datastore
 
-Where indexed data is stored
+S3 bucket and folder details goes below.
 
 <pre><code class="language-yaml">
 datastore:
@@ -174,9 +177,9 @@ datastore:
 
 </code></pre>
 
-#### Indexer
+### Indexer
 
-Config for indexer and optimizer
+Config for indexer and optimizer.
 
 <pre><code class="language-yaml">
 indexer:
@@ -221,9 +224,9 @@ indexer:
 
 </code></pre>
 
-#### Search
+### Search
 
-Config for search engine
+Config for search server goes below.
 
 <pre><code class="language-yaml">
 search:
@@ -253,7 +256,7 @@ search:
 
 </code></pre>
 
-Config for historic search engine
+Config for historic search server.
 
 <pre><code class="language-yaml">
 fixedSearch:
@@ -282,7 +285,9 @@ fixedSearch:
 
 </code></pre>
 
-####  Gateway
+###  Gateway
+
+Gateway specific configuration goes below.
 
 <pre><code class="language-yaml">
 
@@ -307,7 +312,9 @@ fixedSearch:
  
 </code></pre>
 
-#### Control Panel
+### Control Panel
+
+Control Panel specific configuration goes below.
 
 <pre><code class="language-yaml">
   cpanel:
@@ -328,7 +335,9 @@ fixedSearch:
         
 </code></pre>
 
-#### Persistance Volume 
+### Persistance Volume 
+
+If PV is enabled, configure the same below.
 
 <pre><code class="language-yaml">
   persistence:
@@ -348,7 +357,7 @@ fixedSearch:
 
 </code></pre>
 
-### **Prerequisites**:
+## **Prerequisites**:
 The following prerequisites are required to install Episilia.
 ```
 1. Installing and configuring Helm (Helm CLI)
@@ -368,13 +377,13 @@ The following prerequisites are required to install Episilia.
 7. S3 credentials where the Index and data files to be stored (aws accesskey, secret key, bucket name, folder name, region)
 ```
 
-#### **System-Requisites:**
+## **System-Requisites:**
 1. Check AVX support in the local Machine
    On linux (or unix machines) the information about your cpu is in /proc/cpuinfo. You can extract information from there by     hand, or with a grep command (grep flags /proc/cpuinfo).
 Also most compilers will automatically define __AVX2__ so you can check for that too.
 2. vCPUs - 2,Mem - 8gb (Preferably t2-large in AWS)
 
-### **References**
+## **References**
 
 
 **Kubectl CLI**
@@ -386,21 +395,21 @@ Also most compilers will automatically define __AVX2__ so you can check for that
 **Basic commands**
 To upload a chart to Kubernetes, you can use the following command:
 ```
-helm install [RELEASE NAME] [CHART]
+helm install <RELEASE NAME> <CHART>
 
-helm install [CHART] —generate-name 
+helm install <CHART> —generate-name 
 
-helm install [NAME] [CHART] —dry-run --debug
+helm install <NAME> <CHART> —dry-run --debug
 
 ```
 You can remove a chart repository:
 ```
-helm repo remove | rm [NAME]
+helm repo remove | rm <NAME>
 helm repo remove episilia
 ```
 Before installing chart, if you want to see template of that chart 
 ```
-helm  template [chart]
+helm  template <CHART>
 helm template episilia/episilia-cpanel
 ```
 While Installing application we can pass keywords at runtime like below:
@@ -409,22 +418,22 @@ helm install episilia episilia/episilia-log-indexer --set image.repository=<imag
 ```
 If you want to upgrade your chart, use the following command and choose the release you want:
 ```
-helm upgrade [RELEASE] [CHART] 
+helm upgrade <RELEASE> <CHART> 
 helm upgrade episilia episilia/episilia-cpanel
 ```
 You can add the flag -i or --install if you want to run an install before if a release by this name doesn’t already exist
 Otherwise, you can do a rollback. If you do not specify the revision, it will roll back to the previous version. 
 ```
-helm rollback [RELEASE] [REVISION]
+helm rollback <RELEASE> <REVISION>
 helm rollback episilia --revision 1
 ```
 You can see with this command all the historical revisions for a given release.
 ```
-helm history [RELEASE]
+helm history <RELEASE>
 ```
 If you want to uninstall a release, here is the command:
 ```
-helm uninstall [RELEASE]
+helm uninstall <RELEASE>
 helm uninstall episilia
 ```
 
