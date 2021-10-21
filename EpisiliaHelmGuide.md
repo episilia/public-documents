@@ -53,9 +53,9 @@ List the installed helm chart
  $ kubectl get services
 ```
 ## **Step5: Access grafana Dashboard in browser**
-Access the grafana dashboard using grafana cluster IP.
+Access the grafana dashboard using grafana cluster IP. Redirect the grafana IP as needed.
 
-Default <USERNAME> and <PASSWORD> is *admin*
+Default USERNAME and PASSWORD is *admin*
 
 ## Values configuration
 
@@ -75,7 +75,7 @@ To enable the required servers. Use these variable to  enable optimizer and hist
 
 
   ```
-  📝 Note: episilia-log-indexer, episilia-search, episilia-gateway needs to be enabled by default.
+  📝 Note: episilia-log-indexer, episilia-search, episilia-gateway needs to be enabled by default. Disable grafana if reusing existing prior grafana.
   ```
 
 <pre><code class="language-yaml">
