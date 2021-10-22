@@ -3,7 +3,7 @@
 Helm installation guide for episilia.  Refer to [prerequisites](#prerequisites) before installation.
 
 ## **Step1: Adding the helm repo** 
- Repo URL is Gitlab Page URL
+ Repo URL: **https://episilia.gitlab.io/episilia-helm/release**
  ```bash
 helm repo add <NAME> <URL>
 $ helm repo add episilia https://episilia.gitlab.io/episilia-helm/release
@@ -18,7 +18,7 @@ $ helm repo list or helm repo ls
 ```
 $ helm search repo episilia
 ```
-## **Step2: Update values in episilia/episilia-cpanel is the master chart** 
+## **Step2: Update values in episilia/episilia-cpanel master chart** 
 In this master chart's values.yaml file update required global values as described in the [values section](#values-configuration).
 Inspect the values before installing application use below:
 ```
@@ -71,7 +71,7 @@ imageTag: &release "1.0.0.RC3-20210922"
 
 ### Enabling server nodes
 
-To enable the required servers. Use these variable to  enable optimizer and historic search if needed.
+To enable the required servers. Use these variable to  enable optimizer and historic search, if needed.
 
 
   ```
@@ -135,13 +135,13 @@ kafka:
       cpanel: episilia-cpanel-group   # Kafka consumer-group for cpanel
     topic:
       index:
-        live: stagefiles # Topic for internal publish indexed files - stage.topic
-        optimized: optfiles # Topic for internal optimize.topic:  publish file names post optimization
+        live: stagefiles-topic # Topic for internal publish indexed files - stage.topic
+        optimized: optfiles-topic # Topic for internal optimize.topic:  publish file names post optimization
       optimize:
-        request: stagefolder #optimize.request.topic send folders to optimize
+        request: stagefolder-topic #optimize.request.topic send folders to optimize
       cpanel:
-        in: cpaneld # Internal topic cpanel.data.topic
-        out: cpaneld # Internal topic cpanel.data.topic
+        in: cpaneld-topic # Internal topic cpanel.data.topic
+        out: cpaneld-topic # Internal topic cpanel.data.topic
     indexer:
       logs:
         topics: logs # Topic from where logs are loaded.
@@ -285,7 +285,6 @@ fixedSearch:
 Gateway specific configuration goes below.
 
 <pre><code class="language-yaml">
-
   gateway:
     image:
       repository: episilia/episilia-gateway   # docker image of episilia-gateway
@@ -355,28 +354,18 @@ If PV is enabled, configure the same below.
 ## **Prerequisites**:
 The following prerequisites are required to install Episilia.
 ```
-1. Installing and configuring Helm (Helm CLI)
+1. Helm version 3.0+ (Helm CLI)
 2. Kubectl CLI
 3. A Kubernetes Cluster Up and Running
-4. Setup Kafka (kafka IP address should be mentioned in Episilia)
-      Topics:
-         - Episilia-logs(kafka topic where logs are pushed)
-         - Episilia_index_1(internal live topic)
-         - Episilia_opt_1(internal optimized topic)
-         - episilia-metrics
-         - Episilia_opt_req	(internal optimizer request topic)
-      The Logs to be pushed to this topic “episilia-logs” and only this topic can be overridden in the charts and others are   default internal topics.
-5. Docker login (login into DockerHub)
-6. Create Secret (To pull the images using secret, use regcred as default secret name) 
-   kubectl create secret generic regcred --from-file=.dockerconfigjson=/home/Deskstop/.docker/config.json --type=kubernetes.io/  dockerconfigjson
-7. S3 credentials where the Index and data files to be stored (aws accesskey, secret key, bucket name, folder name, region)
+4. Setup Kafka and relevant topics and provide in kafka configuration.
+5. S3 credentials where the Index and data files to be stored (aws accesskey, secret key, bucket name, folder name, region)
 ```
 
 ## **System-Requisites:**
-1. Check AVX support in the local Machine
+1. Check AVX support in the target machine
    On linux (or unix machines) the information about your cpu is in /proc/cpuinfo. You can extract information from there by     hand, or with a grep command (grep flags /proc/cpuinfo).
 Also most compilers will automatically define __AVX2__ so you can check for that too.
-2. vCPUs - 2,Mem - 8gb (Preferably t2-large in AWS)
+2. Any 4GB+ kubernetes cluster
 
 ## **References**
 
