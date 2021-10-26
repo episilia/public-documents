@@ -45,7 +45,7 @@ Search filter can have any of the following operators as below:
 - **(Regex not match) !~ “Filter”**
 
 
-For detailed regexp syntax refer to: [https://www.pcre.org/original/doc/html/pcrepattern.html](https://www.pcre.org/original/doc/html/pcrepattern.html)
+For detailed regexp syntax refer to: <a href="https://www.pcre.org/original/doc/html/pcrepattern.html" target="_blank" rel="noopener noreferrer">https://www.pcre.org/original/doc/html/pcrepattern.html</a>
 
 ### Note on App ID and Tenant ID:
 
@@ -134,6 +134,7 @@ Example:
 
 ### Reference:
 - Refer to the Episilia installation guide.
-- Grafana loki query syntax:[https://grafana.com/docs/loki/latest/logql/](https://grafana.com/docs/loki/latest/logql/)
-- Regexp filter patterns:[https://www.pcre.org/original/doc/html/pcrepattern.html](https://www.pcre.org/original/doc/html/pcrepattern.html)
+- Grafana loki query syntax: <a href="https://grafana.com/docs/loki/latest/logql/" target="_blank" rel="noopener noreferrer">https://grafana.com/docs/loki/latest/logql/</a>
+
+- Regexp filter patterns: <a href="https://www.pcre.org/original/doc/html/pcrepattern.html" target="_blank" rel="noopener noreferrer">https://www.pcre.org/original/doc/html/pcrepattern.html</a>
 
