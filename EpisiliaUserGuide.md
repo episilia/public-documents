@@ -4,7 +4,8 @@ This document provides details on usage of episilia for the end users, primarily
 ## Search Using Grafana:
 Log searches in Episilia is done via the Grafana/Loki data source. Grafana should be configured to connect to the episilia-gateway node of the cluster as a Loki data source.
 
-The Epislia query syntax is aligned with the Grafana/Loki query syntax: [https://grafana.com/docs/loki/latest/logql/](https://grafana.com/docs/loki/latest/logql/)
+The Epislia query syntax is aligned with the Grafana/Loki query syntax: <a href="https://grafana.com/docs/loki/latest/logql/" target="_blank" rel="noopener noreferrer">https://grafana.com/docs/loki/latest/logql/</a>
+
 
 User can run the query as-is they would run for a grafana/loki system. User can type the query in the query window or use the drop-down menu available.
 
