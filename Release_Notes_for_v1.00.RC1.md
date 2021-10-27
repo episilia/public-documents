@@ -2,7 +2,7 @@
 
 # Features and enhancements:
 
-- This release supports helm based installation . For details refer link:[Click-Here](https://docs.google.com/document/d/181NdijoVr0FHV_BN33h-a8fDWo_pVCQv9hKkUw27D4c/edit?usp=sharing)
+- This release supports helm based installation.
 
 - The release also supoort episilia-in-a-box product, where all of episilia cluster including grafana can be installed in a single installation.
 
