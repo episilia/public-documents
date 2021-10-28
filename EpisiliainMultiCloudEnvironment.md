@@ -1,6 +1,6 @@
 ## **Google Cloud (GCP):**
 
-Step 1:  Create K8s cluster GKE with 3 nodes each node of 2vcpu and 8gb ram
+Step 1:  Create K8s cluster GKE with desired number of nodes and resources based on the requirement.
 
 Step 2:  Create cloud storage(bucket) and a folder.
 
@@ -17,7 +17,7 @@ Step 5: Install/deploy episilia and test.
 
 Step 1: Create VPC by choosing Virtual Private Cloud service.
 
-Step 2: Create K8s cluster ACK (container service for Kubernetes) with 3 nodes each node of 4vcpu and 8gb ram and choose the vpc created before while creating cluster.
+Step 2: Create K8s cluster ACK (container service for Kubernetes) with desired number of nodes and resources based on requirement and choose the vpc created before while creating cluster.
 
 Step 3:  Create bucket by getting into OSS (Object Storage Service) and create a folder.
 
