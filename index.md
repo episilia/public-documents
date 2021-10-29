@@ -1,3 +1,3 @@
-<head>   
-<meta http-equiv="refresh" content="0; url=https://www.episilia.com/resources" />
-</head>
+* [HELM installation guide](https://episilia.github.io/public-documents/EpisiliaHelmGuide)
+* [User guide](https://episilia.github.io/public-documents/EpisiliaUserGuide)
+* [Release notes](https://episilia.github.io/public-documents/ReleaseNotes)
