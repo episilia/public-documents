@@ -6,3 +6,4 @@
 * [Release_Notes_for_v0.11](https://episilia.github.io/public-documents/Release_Notes_for_v0.11)
 * [Release_Notes_for_v0.12](https://episilia.github.io/public-documents/Release_Notes_for_v0.12)
 * [Release_Notes_for_v1.00.RC1](https://episilia.github.io/public-documents/Release_Notes_for_v1.00.RC1)
+* [Release_Notes_for_v1.0.0](https://episilia.github.io/public-documents/Release_Notes_for_v1.00)
