@@ -24,21 +24,21 @@ Inspect the values before installing application use below:
 ```
 $ helm inspect values episilia/episilia-cpanel > episilia_values.yaml
 
-$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev
+$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev --set global.client.license.key=episilia
 ```
 ## **Step3: Dry run and cross check all the values** 
 ```
 $ helm install  episilia episilia/episilia-cpanel -f episilia_values.yaml --dry-run
 ```
 ```
-$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev --dry-run
+$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev --dry-run --set global.client.license.key=episilia 
 ```
 ## **Step4: Install helm repo**
 ```
 helm install <RELEASE NAME> <CHART>
 $ helm install episilia episilia/episilia-cpanel  -f episilia_values.yaml
                               or      
-$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev
+$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev --set global.client.license.key=episilia
 ```
 List the installed helm chart
  ```
@@ -328,6 +328,11 @@ Control Panel specific configuration goes below.
         server: "https://console.episilia.com/publish_cpanel_data"      # Url of the console
       get:
         server: ""
+      grpc:
+        port: "8080"
+      metrics:
+        port: "8090"
+
         
 </code></pre>
 
