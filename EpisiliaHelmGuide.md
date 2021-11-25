@@ -24,21 +24,21 @@ Inspect the values before installing application use below:
 ```
 $ helm inspect values episilia/episilia-cpanel > episilia_values.yaml
 
-$ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev
+$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev
 ```
 ## **Step3: Dry run and cross check all the values** 
 ```
 $ helm install  episilia episilia/episilia-cpanel -f episilia_values.yaml --dry-run
 ```
 ```
-$ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev --dry-run
+$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev --dry-run
 ```
 ## **Step4: Install helm repo**
 ```
 helm install <RELEASE NAME> <CHART>
 $ helm install episilia episilia/episilia-cpanel  -f episilia_values.yaml
                               or      
-$ helm install episilia episilia/episilia-cpanel --set global.client.name=episilia-client --set global.client.env=dev
+$ helm install episilia episilia/episilia-cpanel --set global.client.id=episilia-client --set global.client.env=dev
 ```
 List the installed helm chart
  ```
@@ -100,8 +100,10 @@ Every installation should proivide an unique client name and env as below.
 
 <pre><code class="language-yaml">global:
   client:
-    name: episilia-helm
+    id: episilia-helm
     env: test-helm
+    license:
+      key: episilia
 
 </code></pre>
 
