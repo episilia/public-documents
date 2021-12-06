@@ -1,4 +1,4 @@
-# **Release notes for Episilia 1.0.0**
+# **Release notes for Episilia 1.0.1**
 
 
 # Features and enhancements:
