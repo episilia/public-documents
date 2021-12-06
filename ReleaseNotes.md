@@ -7,4 +7,4 @@
 * [Release_Notes_for_v0.12](https://episilia.github.io/public-documents/Release_Notes_for_v0.12)
 * [Release_Notes_for_v1.00.RC1](https://episilia.github.io/public-documents/Release_Notes_for_v1.00.RC1)
 * [Release_Notes_for_v1.0.0](https://episilia.github.io/public-documents/Release_Notes_for_v1.00)
-* [Release_Notes_for_v1.0.1](https://episilia.github.io/public-documents/Release_Notes_for_v1.01)
+* [Release_Notes_for_v1.0.1](https://github.com/episilia/public-documents/blob/gh-pages/Release_Notes_for_v1.01.md)
