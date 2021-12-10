@@ -234,7 +234,7 @@ indexer:
 ### Alert
 
 Config for alert server .
-
+<pre><code class="language-yaml">
   alert:
     resources:
       limits:
@@ -245,6 +245,8 @@ Config for alert server .
         memory: 300Mi          # memory request on episilia-optimizer
     rules.file.url:            #s3 path of alert rules file
     prometheus.gateway: localhost:5070  # push-gateway url
+
+</code></pre>
 
 ### Search
 
