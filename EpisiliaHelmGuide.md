@@ -89,6 +89,8 @@ episilia-gateway:
   enabled: true
 episilia-log-indexer-opt:
   enabled: false
+episilia-alert:
+  enabled: false
 grafana:
   enabled: true
 
@@ -115,6 +117,8 @@ Common Ops config goes below.
 ops:
     log:
       debug: on # Enable to get debug logs in all the servers
+    license:
+      url: episilia-cpanel:8080  
     cpanel:
       data:
         publish:
@@ -135,6 +139,9 @@ kafka:
     group:      
       search: episilia-search-group   # Kafka consumer-group for search
       cpanel: episilia-cpanel-group   # Kafka consumer-group for cpanel
+      logwatcher: episilia-logwatcher-group  # Kafka consumer-group for log-watcher
+      logwatcher.tail: episilia-logwatcher-tail-group  # Kafka consumer-group for log-watcher-tail
+      logwatcher.alert: episilia-logwatcher-alert-group  # Kafka consumer-group for log-watcher-alert
     topic:
       index:
         live: stagefiles-topic # Topic for internal publish indexed files - stage.topic
@@ -144,6 +151,9 @@ kafka:
       cpanel:
         in: cpaneld-topic # Internal topic cpanel.data.topic
         out: cpaneld-topic # Internal topic cpanel.data.topic
+      alert:
+        response:
+          out: alert_out 
     indexer:
       logs:
         topics: logs # Topic from where logs are loaded.
@@ -220,6 +230,21 @@ indexer:
         memory: 300Mi          # memory request on episilia-optimizer
 
 </code></pre>
+
+### Alert
+
+Config for alert server .
+
+  alert:
+    resources:
+      limits:
+        cpu: 500m              # cpu limit on episilia-optimizer
+        memory: 600Mi         # memory limit on episilia-optimizer
+      requests:
+        cpu: 300m              # cpu request on episilia-optimizer
+        memory: 300Mi          # memory request on episilia-optimizer
+    rules.file.url:            #s3 path of alert rules file
+    prometheus.gateway: localhost:5070  # push-gateway url
 
 ### Search
 
