@@ -18,14 +18,14 @@
 
 # Added few additional configs w.r.t Alert:
 
-- **kafka.group.logwatcher**: Kafka consumer group for logwatcher.
+- **kafka.group.logwatcher:** Kafka consumer group for logwatcher.
 
-- **kafka.group.logwatcher.tail**: Kafka consumer group for logwatcher-tail.
+- **kafka.group.logwatcher.tail:** Kafka consumer group for logwatcher-tail.
 
-- **kafka.group.logwatcher.alert**: Kafka consumer group for logwatcher-alert.
+- **kafka.group.logwatcher.alert:** Kafka consumer group for logwatcher-alert.
 
-- **kafka.topic.alert.request.in**: Kafka topic to publish results for alerts.
+- **kafka.topic.alert.request.in:** Kafka topic to publish results for alerts.
 
-- **alert.rules.file.url**: s3 path for alert rules files.
+- **alert.rules.file.url:** s3 path for alert rules files.
 
-- **alert.prometheus.gateway**: Push-gateway url to be added here.
+- **alert.prometheus.gateway:** Push-gateway url to be added here.
