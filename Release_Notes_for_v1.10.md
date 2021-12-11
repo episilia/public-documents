@@ -16,7 +16,7 @@
 
 # Config changes:
 
-# Added few additional configs w.r.t Alert:
+**Added few additional configs w.r.t Alert:**
 
 - **kafka.group.logwatcher:** Kafka consumer group for logwatcher.
 
